@@ -1,6 +1,6 @@
 #!/bin/bash
 
-security_group_name=SocialBaseSG
+security_group_name=MySG
 key_name=NotebookHome
 device_to_volume=/dev/sdf
 zone_aws=sa-east-1c
@@ -38,7 +38,7 @@ aws ec2 associate-route-table --subnet-id ${subnet_id} --route-table-id ${route_
 echo
 
 echo Criando Grupo de Segurança
-sg_id=$(aws ec2 create-security-group --group-name ${security_group_name} --description "Grupo de seguranca SocialBase" --vpc-id ${vpc_id} --output json --query 'GroupId' | tr -d '"')
+sg_id=$(aws ec2 create-security-group --group-name ${security_group_name} --description "Meu Grupo de seguranca" --vpc-id ${vpc_id} --output json --query 'GroupId' | tr -d '"')
 echo Group ID: $sg_id
 echo
 
